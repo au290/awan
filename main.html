@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> Woy Jawir </title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            display: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+            body: ['"DM Sans"', 'system-ui', 'sans-serif'],
+          },
+        },
+      },
+    }
+  </script>
+  <style>
+    body {
+      background: #ffffff;
+    }
+    .text-reveal {
+      opacity: 0;
+      transform: translateY(12px);
+      animation: revealUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+    .text-reveal-delay-1 { animation-delay: 0.15s; }
+    .text-reveal-delay-2 { animation-delay: 0.35s; }
+    .text-reveal-delay-3 { animation-delay: 0.55s; }
+
+    @keyframes revealUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .word-line {
+      display: inline-block;
+      overflow: hidden;
+    }
+
+    .char {
+      display: inline-block;
+      opacity: 0;
+      transform: translateY(100%);
+      animation: charUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    .char:nth-child(1) { animation-delay: 0.1s; }
+    .char:nth-child(2) { animation-delay: 0.18s; }
+    .char:nth-child(3) { animation-delay: 0.26s; }
+
+    @keyframes charUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .underline-draw {
+      width: 0;
+      height: 1px;
+      background: #111;
+      margin: 0.5rem auto 0;
+      animation: drawLine 1s cubic-bezier(0.16, 1, 0.3, 1) 0.8s forwards;
+    }
+
+    @keyframes drawLine {
+      to { width: 4rem; }
+    }
+
+    .subtle-glow {
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, rgba(0,0,0,0.03) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex items-center justify-center overflow-hidden">
+  <!-- Subtle ambient glow -->
+  <div class="subtle-glow top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></div>
+
+  <main class="relative z-10 text-center px-6">
+    <!-- Main text -->
+    <p class="text-reveal font-display text-[clamp(4rem,12vw,9rem)] font-light tracking-tight text-black leading-[0.9]">
+      <span class="word-line">
+        <span class="char">W</span><span class="char">o</span><span class="char">i</span>
+      </span>
+    </p>
+
+    <p class="text-reveal text-reveal-delay-1 font
+    -display text-[clamp(4rem,12vw,9rem)] font-light tracking-tight text-black leading-[0.9] italic">
+      <span class="word-line">
+        <span class="char">J</span><span class="char">a</span><span class="char">w</span><span class="char">i</span><span class="char">r</span>
+      </span>
+    </p>
+
+    <!-- Elegant underline -->
+    <div class="underline-draw mt-4 mb-8"></div>
+
+    <!-- Subtext -->
+    <p class="text-reveal text-reveal-delay-2 font-body text-xs font-light tracking-[0.35em] uppercase text-gray-400">
+      Jawa Jawa Jawa Jawa Jawa Jawa Jawa Jawa Jawa Jawa
+    </p>
+  </main>
+</body>
+</html>
