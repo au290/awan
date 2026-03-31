@@ -15,17 +15,11 @@ A minimalist single-page typography site with animated text reveal.
 - Elegant serif display font with sans-serif body text
 - Subtle ambient radial glow background
 - Responsive typography using `clamp()`
-- No build step required — open `main.html` directly in browser
+- No build step required — open `index.html` directly in browser
 
 ## Quick Start
 
 ```bash
 # Open directly in browser
-open main.html
-```
-
-Or serve with any static server:
-
-```bash
-npx serve "."
+open index.html
 ```
